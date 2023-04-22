@@ -1,0 +1,24 @@
+<div class="error" *ngIf="isError">
+  mensaje de error. Algo salio mal
+  <span>no se renderiza porque estamos dentro del bloque del *ngIf que es false</span>
+</div>
+
+<button (click)="showError()">Mostrar error</button>
+
+<ul>
+  <li *ngFor="let section1 of section1">{{ section1 }}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let section2 of section2">{{section2.name}} ({{section2.duracion}})</li>
+</ul>
+
+<ul>
+  <li *ngFor="let section3 of section3">{{section3.name}} ({{section3.duracion}})</li>
+</ul>
+
+<ng-template #noContent>
+  contenido no disponible
+</ng-template>
+
+<ng-container *ngTemplateOutlet=" isError ? noContent : null"></ng-container>

@@ -1,0 +1,23 @@
+<p>formularios works!</p>
+<div>
+  <input type="text" placeholder="Nombre" [formControl]="name">
+  <pre>
+    <code>
+        {{name | json}}
+    </code>
+  </pre>
+
+</div>
+
+<div>
+  <input type="checkbox" [formControl]="isChecked">{{isChecked.value}}
+  <!-- <pre>
+    <code>
+      {{isChecked | json}}
+    </code>
+  </pre> -->
+</div>
+
+<button [disabled]="name.errors">Enviar</button>
+
+
