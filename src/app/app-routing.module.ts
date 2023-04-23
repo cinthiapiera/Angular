@@ -7,6 +7,7 @@ import { NuevaCompraComponent } from './compra/nueva-compra/nueva-compra.compone
 import { HistorialCompraComponent } from './compra/historial-compra/historial-compra.component';
 import { AuthGuard } from './auth.guard';
 import { FormulariosComponent } from './formularios/formularios.component';
+import { TodosComponent } from './todos/todos.component';
 
 //paso 3 ,este modulo solo tendra las rutas de mi aplicaicon
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   ]},
   { path: 'venta', loadChildren: ()=> import('./venta/venta.module').then(m => m.VentaModule)},
   { path: 'formularios', component: FormulariosComponent },
+  { path: 'todos', component: TodosComponent },
 ];
 
 @NgModule({

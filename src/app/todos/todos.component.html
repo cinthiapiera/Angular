@@ -1,0 +1,8 @@
+<!-- <app-todo></app-todo> -->
+
+<button (click)="updatePost()">Actualizar posts</button>
+<ul>
+  <li *ngFor="let todo of todos">{{todo.userId}} : {{todo.title}}</li>
+</ul>
+
+

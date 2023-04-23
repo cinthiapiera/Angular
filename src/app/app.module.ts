@@ -13,6 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { VentaModule } from './venta/venta.module';
 import { FormulariosComponent } from './formularios/formularios.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TodosComponent } from './todos/todos.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorService } from './services/interceptor.service';
+import { TodoComponent } from './todos/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -22,17 +26,22 @@ import { ReactiveFormsModule } from '@angular/forms';
     EstructuralComponent,
     PipesComponent,
     EstadosPipe,
-    FormulariosComponent
+    FormulariosComponent,
+    TodosComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,//paso 4 desde app-routing.module.ts
     CompraModule,
     VentaModule,
-    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide : HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,23 +1,24 @@
 <p>formularios works!</p>
-<div>
-  <input type="text" placeholder="Nombre" [formControl]="name">
-  <pre>
-    <code>
-        {{name | json}}
-    </code>
-  </pre>
+<form [formGroup]="form">
+  <div class="">
+    <input type="text" placeholder="Nombre" formControlName="name" />
+    <pre>
+      <code>
+          {{ form.get('name')?.value}}
+      </code>
+    </pre>
+  </div>
 
-</div>
-
-<div>
-  <input type="checkbox" [formControl]="isChecked">{{isChecked.value}}
-  <!-- <pre>
-    <code>
-      {{isChecked | json}}
-    </code>
-  </pre> -->
-</div>
-
-<button [disabled]="name.errors">Enviar</button>
-
-
+  <div class="">
+    <input type="checkbox" formControlName="isChecked" />{{
+    form.get("isChecked")?.value
+    }}
+    <!-- <pre>
+      <code>
+        {{isChecked | json}} //elpipe json formatea nuestro codigo para poder leer nuestro objeto de forma sencilla
+      </code>
+    </pre> -->
+  </div>
+</form>
+{{ form.value | json }}
+<button [disabled]="form.get('name')?.errors">Enviar</button>

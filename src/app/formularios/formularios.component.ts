@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { FormControl, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-formularios',
@@ -8,9 +8,14 @@ import { FormControl, Validators} from '@angular/forms';
 })
 export class FormulariosComponent  implements OnInit{
 
+  //diferencia principal entre un ng module(optenemos el valor) y FormControl (controlamos el valor en funcionalidades)
   //angular viene equipaod con validadores que podemos facilmente utilizarlos
-  name = new FormControl('',[Validators.minLength(4), Validators.required]);
-  isChecked = new FormControl(false);//o inicializar desde un inicio (true)
+
+  //creacion de un formgroup u sus elementos vendrian a ser objetos
+  form = new FormGroup({
+    name: new FormControl('',[Validators.minLength(4), Validators.required]),
+    isChecked: new FormControl(false),//o inicializar con un true
+})
 
   constructor(){}
 
